@@ -1,0 +1,97 @@
+header *, footer * {
+    text-decoration: none;
+}
+
+/* Header */
+
+header {
+    background: #fafafb;
+    padding-top: 20px;
+}
+
+.header-menu {
+    align-items: center;
+    width: 100%;
+}
+
+.header-menu > * {
+    height: 50px;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 384px;
+}
+
+.search-container *, .search-container *:hover {
+    border: 0;
+}
+
+.search-input {
+    width: 100%;
+    height: 40px;
+    padding-top: 4px;
+    background: #fff;
+    border-radius: 1px;
+    padding-left: 12px;
+}
+
+.search-button {
+    background: transparent;
+    position: absolute;
+    width: 44px;
+    height: 100%;
+    right: 0;
+}
+
+.search-button > img {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    right: 10px;
+    top: calc(50% - 11px);
+    opacity: 80%;
+}
+
+.user-header {
+    display: block;
+    text-align: center;
+}
+
+header .navbar {
+    align-items: baseline;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+header .nav-link {
+    padding: 0 5px;
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+@media (min-width: 1400px) {
+    header .container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-menu > div {
+        display: flex;
+        justify-content: center;
+    }
+}

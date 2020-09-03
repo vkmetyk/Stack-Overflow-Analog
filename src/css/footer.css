@@ -1,0 +1,35 @@
+/* footer */
+
+footer {
+    position: relative;
+    background: #212529;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
+    padding: 20px;
+}
+
+footer p {
+    color: #d7d1d1;
+    font-size: 14px;
+}
+
+footer a {
+    color: #b7b1b1;
+    font-size: 13px;
+    padding: 2px 0;
+}
+
+.copyright {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.copyright * {
+    color: #a7a1a1;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* media rules */
