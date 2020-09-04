@@ -44,7 +44,7 @@ function Header() {
     <header className="header">
       <div className="container py-2">
         <div className="header-menu row">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-3">
             <a href="/" className="logo navbar-brand row justify-content-center">
               <img src="/images/logo.png" alt="Logo" />
             </a>

@@ -1,12 +1,32 @@
 import React, {useEffect, useState} from 'react';
 import SortContainer from "./SortContainer";
 import apiRequest from "./apiRequest";
+import LoadMore from "./LoadMore";
+import {Link} from "react-router-dom";
 
 function TagElement({ tag }) {
-  console.log(tag);
+  const [states, setStates] = useState({
+    result: []
+  });
+
+  useEffect(() => {
+    apiRequest(`tags${tag.name}/wikis`, states, setStates);
+    console.log(states.result);
+  }, []);
+
   return (
     <div>
-      <h1>Tag</h1>
+      <h3>
+        <Link className="hyperlink" to={`/questions/tag/${tag.name}`}>
+          {tag.name}
+        </Link>
+      </h3>
+      <p>{tag.count}</p>
+      {
+        states.result[0].excerpt ?
+        (<p>{states.result[0].excerpt}</p>) :
+        (<></>)
+      }
     </div>
   );
 }
@@ -18,29 +38,23 @@ function Tags({ match }) {
 
   useEffect(() => {
     apiRequest('tags', states, setStates);
+    console.log(states.result);
   }, [states.orderType, states.sortType]);
 
-  const changeSortType = (type) => setStates(states => ({
-    ...states,
-    sortType: type
-  }));
-  const changeOrderType = (type) => setStates(states => ({
-    ...states,
-    orderType: type
-  }));
-
   return (
-    <div className="questions-container">
+    <>
       <SortContainer
-        changeSortType={changeSortType}
-        changeOrderType={changeOrderType}
-        sortBy={["activity", "votes", "creation"]}
-        orderBy={["desc", "asce"]}
+        setState={setStates}
+        sortBy={["popularity", "activity", "name"]}
+        orderBy={["desc", "asc"]}
       />
-      {states?.result?.map(tag => (
-        <TagElement key={tag.tag_id} tag={tag} />
-      ))}
-    </div>
+      <div className="tags-container px-4">
+        {states?.result?.map((tag, index) => (
+          <TagElement key={index} tag={tag} />
+        ))}
+      </div>
+      <LoadMore value={states} setValue={setStates} />
+    </>
   )
 }
 

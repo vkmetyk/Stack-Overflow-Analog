@@ -1,11 +1,20 @@
 import React from "react";
 
+function changeField (fieldName, value, setState) {
+  setState(states => ({
+    ...states,
+    page: 1,
+    result: [],
+    [fieldName]: value
+  }));
+}
+
 function SortContainer(props) {
-  let changeSortType = (event) => props.changeSortType(event.target.value);
-  let changeOrderType = (event) => props.changeOrderType(event.target.value);
+  let changeSortType = (event) => changeField("sortType", event.target.value, props.setState);
+  let changeOrderType = (event) => changeField("orderType", event.target.value, props.setState);
 
   return (
-    <div className='sort-by-container'>
+    <div className='sort-by-container px-4'>
       <select onChange={changeSortType} className="select-css">
         {props.sortBy.map((sortMethod, index) => (
           <option key={index} value={`${sortMethod}`}>{sortMethod}</option>

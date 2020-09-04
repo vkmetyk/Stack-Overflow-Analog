@@ -1,10 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import {Link} from "react-router-dom";
 
 function QuestionElement({ question }) {
   return (
     <div className="question-element">
-
       <div className="stats-container">
         <div className="stats">
           <div className="vote">
@@ -25,7 +25,7 @@ function QuestionElement({ question }) {
 
       <div className="summary">
         <h3>
-          <Link className="question-hyperlink" to={`/questions/${question.question_id}`}>
+          <Link className="hyperlink" to={`/questions/${question.question_id}`}>
             {question.title}
           </Link>
         </h3>
@@ -62,6 +62,10 @@ function QuestionElement({ question }) {
 
     </div>
   );
+}
+
+QuestionElement.propTypes = {
+  question: PropTypes.object
 }
 
 export default QuestionElement;

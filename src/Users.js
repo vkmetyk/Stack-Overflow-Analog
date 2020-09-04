@@ -1,60 +1,55 @@
 import React, {useEffect, useState} from 'react';
 import SortContainer from "./SortContainer";
+import apiRequest from "./apiRequest";
+import {Link} from "react-router-dom";
+import './css/users.css'
+import LoadMore from "./LoadMore";
 
 function UserElement({ user }) {
-  console.log(user);
   return (
-    <div>
-      <h1>User</h1>
+    <div className="user-element">
+      <h3>
+        <Link className="hyperlink" to={`/users/${user.user_id}`}>
+          {user.display_name}
+        </Link>
+      </h3>
+      <div className="image-block">
+        <Link to={`/users/${user.user_id}`}>
+          <img src={user.profile_image} alt="User's image" />
+        </Link>
+      </div>
+      <p>{user.location}</p>
+      <p>{user.reputation}</p>
     </div>
   );
 }
 
 function Users({ match }) {
   const [states, setStates] = useState({
-    users: [], sortType: 'activity', orderType: 'desc'
+    result: [],
+    sortType: 'reputation',
+    orderType: 'desc',
+    page: 1,
   });
 
-  const fetchUsers = async () => {
-    const data = await fetch(
-      `https://api.stackexchange.com/2.2/users?
-      order=${states.orderType}&
-      sort=${states.sortType}&
-      site=stackoverflow`
-    );
-    const apiResult = await data.json();
-    console.log(apiResult);
-    setStates(states => ({
-      ...states,
-      users: apiResult?.items
-    }));
-  };
-
   useEffect(() => {
-    fetchUsers();
-  }, [states.orderType, states.sortType]);
-
-  const changeSortType = (type) => setStates(states => ({
-    ...states,
-    sortType: type
-  }));
-  const changeOrderType = (type) => setStates(states => ({
-    ...states,
-    orderType: type
-  }));
+    apiRequest('users', states, setStates);
+  }, [states.orderType, states.sortType, states.page]);
 
   return (
-    <div className="questions-container">
+    <>
       <SortContainer
-        changeSortType={changeSortType}
-        changeOrderType={changeOrderType}
-        sortBy={["activity", "votes", "creation"]}
-        orderBy={["desc", "asce"]}
+        setState={setStates}
+        sortBy={["reputation", "creation", "name"]}
+        orderBy={["desc", "asc"]}
       />
-      {states?.users?.map(user => (
-        <UserElement key={user.user_id} user={user} />
-      ))}
-    </div>
+      <div className="users-container px-4">
+        {states?.result?.map(user => (
+          <UserElement key={user.user_id} user={user} />
+        ))}
+      </div>
+      <LoadMore value={states} setValue={setStates} />
+    </>
   )
 }
 

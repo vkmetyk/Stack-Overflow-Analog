@@ -74,16 +74,16 @@ img {
   background: #f3f3f3;
 }
 
-.question-hyperlink, .question-hyperlink:visited {
+.hyperlink, .hyperlink:visited {
   color: #07c;
   text-decoration: none !important;
 }
 
-.question-hyperlink:hover {
+.hyperlink:hover {
   color: orange;
 }
 
-.question-hyperlink {
+.hyperlink {
   line-height: 1.3;
   margin-bottom: 1.2em;
   font-size: 16px;
@@ -93,7 +93,8 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
   width: 100%;
 }
 
@@ -102,4 +103,23 @@ img {
   border: 0;
   padding: 5px 2px;
   max-width: 150px;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.load-more-button {
+  background: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  line-height: 40px;
+  font-size: 18px;
+  height: 40px;
+  text-align: center;
+  width: 150px;
 }

@@ -1,6 +1,6 @@
 .questions-container {
     display: flex;
-    padding: 20px;
+    padding-top: 20px;
     flex-direction: column;
     width: 100%;
 }
@@ -27,7 +27,7 @@
     font-size: 12px;
     margin-left: 8px;
     margin-right: 16px;
-    width: 65px;
+    width: auto;
     height: auto;
 }
 
@@ -46,9 +46,8 @@
     margin-bottom: 4px;
 }
 
-.question-element .stats-container .views {
+.question-element .stats-cont   ainer .views {
     padding-top: 4px;
-    width: 65px;
 }
 
 .question-element .summary {

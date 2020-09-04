@@ -35,7 +35,7 @@ function Question({ match }) {
         changeSortType={changeSortType}
         changeOrderType={changeOrderType}
         sortBy={["activity", "votes", "creation"]}
-        orderBy={["desc", "asce"]}
+        orderBy={["desc", "asc"]}
       />
       {states?.result?.map(question => (
         <QuestionContainer key={question.question_id} question={question} />
