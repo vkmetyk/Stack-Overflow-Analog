@@ -3,6 +3,7 @@ import SortContainer from "./SortContainer";
 import apiRequest from "./apiRequest";
 import LoadMore from "./LoadMore";
 import {Link} from "react-router-dom";
+import './css/tags.css'
 
 function TagElement({ tag }) {
   const [states, setStates] = useState({
@@ -10,36 +11,42 @@ function TagElement({ tag }) {
   });
 
   useEffect(() => {
-    apiRequest(`tags${tag.name}/wikis`, states, setStates);
-    console.log(states.result);
+    apiRequest(`tags/${tag.name}/wikis`, states, setStates);
   }, []);
 
   return (
-    <div>
-      <h3>
-        <Link className="hyperlink" to={`/questions/tag/${tag.name}`}>
-          {tag.name}
-        </Link>
-      </h3>
-      <p>{tag.count}</p>
-      {
-        states.result[0].excerpt ?
-        (<p>{states.result[0].excerpt}</p>) :
-        (<></>)
-      }
+    <div className='tag-element'>
+      <div className='tag-header'>
+        <h3>
+          <Link className="hyperlink" to={`/questions/tag/${tag.name}`}>
+            {tag.name}
+          </Link>
+        </h3>
+        <p className="tag-count">count: {tag.count}</p>
+      </div>
+      <div className='tag-body'>
+        {
+          states?.result[0]?.excerpt ?
+          (<p className='tag-description'>{states.result[0].excerpt}</p>) :
+          (<></>)
+        }
+      </div>
     </div>
   );
 }
 
 function Tags({ match }) {
   const [states, setStates] = useState({
-    result: [], sortType: 'activity', orderType: 'desc'
+    result: [],
+    orderType: 'desc',
+    sortType: 'activity',
+    page: 1,
   });
 
   useEffect(() => {
-    apiRequest('tags', states, setStates);
+    apiRequest('tags', states, setStates, '!6UxhDX.C*dexD');
     console.log(states.result);
-  }, [states.orderType, states.sortType]);
+  }, [states.orderType, states.sortType, states.page]);
 
   return (
     <>
@@ -49,9 +56,9 @@ function Tags({ match }) {
         orderBy={["desc", "asc"]}
       />
       <div className="tags-container px-4">
-        {states?.result?.map((tag, index) => (
-          <TagElement key={index} tag={tag} />
-        ))}
+        {
+          states?.result?.map((tag, index) => tag ? (<TagElement key={index} tag={tag}/>) : null)
+        }
       </div>
       <LoadMore value={states} setValue={setStates} />
     </>

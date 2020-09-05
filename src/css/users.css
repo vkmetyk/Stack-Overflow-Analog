@@ -26,9 +26,36 @@
     height: 100px;
 }
 
+.user-element .user-reputation {
+    margin: 0 0 1px 0;
+}
 .user-element p {
     margin: 0 0 5px 0;
 }
+
+.user-element .badges {
+    text-align: center;
+}
+
+.user-element .badges span {
+    position: relative;
+    margin: 0 8px 7px 8px;
+}
+
+.user-element .badges span:after {
+    background: #fff;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    right: -10px;
+    top: 5px;
+}
+
+.user-element .badges .gold-badge:after {background: #ffd700}
+.user-element .badges .silver-badge:after {background: #c0c0c0}
+.user-element .badges .bronze-badge:after {background: #cd7f32;}
 
 /* media rules */
 

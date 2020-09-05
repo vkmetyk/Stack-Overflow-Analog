@@ -20,9 +20,9 @@ function App() {
               <Route path="/" exact component={Main} />
               <Route path="/questions/" exact component={Main} />
               <Route path="/questions/tag/:id" component={Main} />
-              <Route path="/users" component={Users} />
+              <Route path="/users" exact component={Users} />
+              <Route path="/users/:id" component={Profile} />
               <Route path="/tags" component={Tags} />
-              <Route path="/profile" component={Profile} />
               <Route path="/questions/:id" component={Question} />
             </Switch>
           </div>

@@ -15,11 +15,16 @@ function UserElement({ user }) {
       </h3>
       <div className="image-block">
         <Link to={`/users/${user.user_id}`}>
-          <img src={user.profile_image} alt="User's image" />
+          <img src={user.profile_image} alt="User's logo" />
         </Link>
       </div>
+      <p className='user-reputation'>{user.reputation}</p>
+      <div className='badges'>
+        <span className='gold-badge'>{user?.badge_counts?.gold}</span>
+        <span className='silver-badge'>{user?.badge_counts?.silver}</span>
+        <span className='bronze-badge'>{user?.badge_counts?.bronze}</span>
+      </div>
       <p>{user.location}</p>
-      <p>{user.reputation}</p>
     </div>
   );
 }
@@ -33,7 +38,7 @@ function Users({ match }) {
   });
 
   useEffect(() => {
-    apiRequest('users', states, setStates);
+    apiRequest('users', states, setStates, "!BTeB3PYedDSngfTAmVS.bMGP0Ro3rT");
   }, [states.orderType, states.sortType, states.page]);
 
   return (
@@ -44,9 +49,8 @@ function Users({ match }) {
         orderBy={["desc", "asc"]}
       />
       <div className="users-container px-4">
-        {states?.result?.map(user => (
-          <UserElement key={user.user_id} user={user} />
-        ))}
+        {states?.result?.map(user => user ? (<UserElement key={user.user_id} user={user} />) : null
+        )}
       </div>
       <LoadMore value={states} setValue={setStates} />
     </>

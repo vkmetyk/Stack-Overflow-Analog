@@ -36,9 +36,11 @@ function QuestionElement({ question }) {
         </div>
         <div className="started">
           <div className="user-action-time">
-            publish time: <span className="publish-time">{
-            (new Date(question.creation_date * 1000)).toLocaleDateString()
-          }</span>
+            publish time: <span className="publish-time">
+            {
+              (new Date(question.creation_date * 1000)).toLocaleDateString()
+            }
+          </span>
           </div>
           <div className="user-info">
             <div className="user-details">
@@ -52,7 +54,7 @@ function QuestionElement({ question }) {
             <div className="user-icon-block">
               <div className="avatar-wrapper-32">
                 <Link to={`/users/${question.owner.user_id}`}>
-                  <img src={question.owner.profile_image} width="32" height="32" className="user-icon" />
+                  <img src={question.owner.profile_image} style={{width: "32px", height: "32px"}} className="user-icon" alt="user icon" />
                 </Link>
               </div>
             </div>

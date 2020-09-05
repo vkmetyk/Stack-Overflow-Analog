@@ -8,13 +8,13 @@ import LoadMore from "./LoadMore";
 function Main({ match }) {
   const [states, setStates] = useState({
     result: [],
-    sortType: 'activity',
     orderType: 'desc',
+    sortType: 'activity',
     page: 1,
   });
 
   useEffect(() => {
-    apiRequest('questions', states, setStates, match?.params?.id);
+    apiRequest('questions', states, setStates, '!.IzyzT1sqxXAwfdQbRAfsZkXflu7X', match?.params?.id);
   }, [states.orderType, states.sortType, states.page]);
 
   return (
@@ -33,12 +33,9 @@ function Main({ match }) {
         ) : (<></>)
       }
       <div className="questions-container px-4">
-        {states?.result?.map(question => {
-          if (question)
-            return (<QuestionElement key={question?.question_id} question={question} />);
-          else
-            return (<></>);
-        })}
+        {states?.result?.map((question, index) =>
+          question ? (<QuestionElement key={index} question={question} />) : null
+        )}
       </div>
       <LoadMore value={states} setValue={setStates} />
     </>
