@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Main from "./Main";
 import Users from "./Users";
 import Tags from "./Tags";
-import Profile from "./Profile";
+import Profile from "./profile/Profile";
 import Question from "./Question";
 
 function App() {
