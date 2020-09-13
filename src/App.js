@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './css/style.css';
 import Header from "./Header";
@@ -10,7 +10,6 @@ import Profile from "./profile/Profile";
 import Question from "./Question";
 
 function App() {
-
   return (
     <>
       <Router>
@@ -22,6 +21,7 @@ function App() {
               <Route path="/questions/tag/:id" component={Main} />
               <Route path="/users" exact component={Users} />
               <Route path="/users/:id" component={Profile} />
+              <Route path="/profile" component={Profile} />
               <Route path="/tags" component={Tags} />
               <Route path="/questions/:id" component={Question} />
             </Switch>

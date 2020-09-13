@@ -38,7 +38,11 @@ function Users({ match }) {
   });
 
   useEffect(() => {
-    apiRequest('users', states, setStates, "!BTeB3PYedDSngfTAmVS.bMGP0Ro3rT");
+    apiRequest('users', states, setStates,
+      {
+        'filter': '!BTeB3PYedDSngfTAmVS.bMGP0Ro3rT',
+      }
+    );
   }, [states.orderType, states.sortType, states.page]);
 
   return (

@@ -12,6 +12,7 @@ function changeField (fieldName, value, setState) {
 function SortContainer(props) {
   let changeSortType = (event) => changeField("sortType", event.target.value, props.setState);
   let changeOrderType = (event) => changeField("orderType", event.target.value, props.setState);
+  let changePostType = (event) => changeField("postType", event.target.value, props.setState);
 
   return (
     <div className='sort-by-container px-4'>
@@ -20,7 +21,7 @@ function SortContainer(props) {
           <option key={index} value={`${sortMethod}`}>{sortMethod}</option>
         ))}
       </select>
-      <select onChange={changeOrderType} className="select-css">
+      <select onChange={props.posts ? changePostType : changeOrderType} className="select-css">
         {props.orderBy.map((orderType, index) => (
           <option key={index} value={`${orderType}`}>{orderType}</option>
         ))}

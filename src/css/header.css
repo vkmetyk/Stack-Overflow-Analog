@@ -66,8 +66,18 @@ header .search-button > img {
 }
 
 header .user-header {
+    cursor: pointer;
     display: block;
     text-align: center;
+    height: 40px;
+    margin: 0;
+}
+
+header .user-header img {
+    border-radius: 1px;
+    height: 40px;
+    width: 40px;
+    margin-right: 5px;
 }
 
 header .navbar {

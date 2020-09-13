@@ -14,7 +14,20 @@ function Main({ match }) {
   });
 
   useEffect(() => {
-    apiRequest('questions', states, setStates, '!.IzyzT1sqxXAwfdQbRAfsZkXflu7X', match?.params?.id);
+    if (match?.params?.id) {
+      apiRequest('questions', states, setStates,
+        {
+          'filter': '!.IzyzT1sqxXAwfdQbRAfsZkXflu7X',
+          'tag': match?.params?.id,
+        }
+      );
+    } else {
+      apiRequest('questions', states, setStates,
+        {
+          'filter': '!.IzyzT1sqxXAwfdQbRAfsZkXflu7X',
+        }
+      );
+    }
   }, [states.orderType, states.sortType, states.page]);
 
   return (

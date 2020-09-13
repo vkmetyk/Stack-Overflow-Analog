@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import {Link} from "react-router-dom";
+import dateGoodView from "./dateGoodView";
 
 function QuestionElement({ question }) {
   return (
@@ -36,11 +37,9 @@ function QuestionElement({ question }) {
         </div>
         <div className="started">
           <div className="user-action-time">
-            publish time: <span className="publish-time">
-            {
-              (new Date(question.creation_date * 1000)).toLocaleDateString()
-            }
-          </span>
+            <span className="publish-time">
+              {dateGoodView(question.creation_date)}
+            </span>
           </div>
           <div className="user-info">
             <div className="user-details">
@@ -54,7 +53,7 @@ function QuestionElement({ question }) {
             <div className="user-icon-block">
               <div className="avatar-wrapper-32">
                 <Link to={`/users/${question.owner.user_id}`}>
-                  <img src={question.owner.profile_image} style={{width: "32px", height: "32px"}} className="user-icon" alt="user icon" />
+                  <img src={question.owner.profile_image} style={{width: "32px", height: "32px"}} className="user-icon" />
                 </Link>
               </div>
             </div>

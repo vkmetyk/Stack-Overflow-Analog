@@ -1,4 +1,5 @@
 import React from "react";
+import dateGoodView from "../dateGoodView";
 
 function UserBasicInformation({ userInfo }) {
   return (
@@ -7,7 +8,11 @@ function UserBasicInformation({ userInfo }) {
         <div className='img-block'>
           <img src={userInfo.profile_image} alt="profile icon"/>
         </div>
-        <p className='reputation'>{userInfo.reputation} <span>-</span> <span>reputation</span></p>
+        <div className='reputation'>
+          <p>{userInfo.reputation}</p>
+          <span>-</span>
+          <span>reputation</span>
+        </div>
         <div>
           <div className='badges'>
             <span className='gold-badge'>{userInfo?.badge_counts?.gold}</span>
@@ -18,7 +23,6 @@ function UserBasicInformation({ userInfo }) {
       </div>
       <div className='about-me'>
         <p className='user-name'>{userInfo.display_name}</p>
-        <p className='user-description' dangerouslySetInnerHTML={{__html: userInfo.about_me}} />
         <p className='user-description' dangerouslySetInnerHTML={{__html: userInfo.about_me}} />
       </div>
       <div className='addition-info'>
@@ -38,11 +42,15 @@ function UserBasicInformation({ userInfo }) {
             <span>views</span>
           </div>
           <div>
-            <p>{userInfo.location}</p>
-            <span>location</span>
+            {
+              userInfo.location ?
+                (<p>{userInfo.location}</p>) +
+                (<span>location</span>) :
+                null
+            }
           </div>
           <div>
-            <p>{userInfo.creation_date}</p>
+            <p>{dateGoodView(userInfo.creation_date)}</p>
             <span>creation date</span>
           </div>
         </div>

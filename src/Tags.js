@@ -44,8 +44,11 @@ function Tags({ match }) {
   });
 
   useEffect(() => {
-    apiRequest('tags', states, setStates, '!6UxhDX.C*dexD');
-    console.log(states.result);
+    apiRequest('tags', states, setStates,
+      {
+        'filter': '!6UxhDX.C*dexD',
+      }
+    );
   }, [states.orderType, states.sortType, states.page]);
 
   return (
