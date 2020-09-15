@@ -46,7 +46,7 @@
     margin-bottom: 4px;
 }
 
-.question-element .stats-cont   ainer .views {
+.question-element .stats-container .views {
     padding-top: 4px;
 }
 
@@ -96,8 +96,4 @@
 
 .question-element .answered {
     color: #377D21;
-}
-
-@media (max-width: 576px) {
-
 }

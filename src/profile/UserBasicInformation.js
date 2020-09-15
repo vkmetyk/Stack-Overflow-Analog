@@ -44,8 +44,10 @@ function UserBasicInformation({ userInfo }) {
           <div>
             {
               userInfo.location ?
-                (<p>{userInfo.location}</p>) +
-                (<span>location</span>) :
+                <>
+                  <p>{userInfo.location}</p>
+                  <span>location</span>
+                </> :
                 null
             }
           </div>
