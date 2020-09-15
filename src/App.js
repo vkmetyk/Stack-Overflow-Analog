@@ -8,6 +8,7 @@ import Users from "./Users";
 import Tags from "./Tags";
 import Profile from "./profile/Profile";
 import Question from "./Question";
+import Search from "./Search";
 
 function App() {
   return (
@@ -19,11 +20,12 @@ function App() {
               <Route path="/" exact component={Main} />
               <Route path="/questions/" exact component={Main} />
               <Route path="/questions/tag/:id" component={Main} />
+              <Route path="/questions/:id" component={Question} />
+              <Route path="/search/:id" component={Search} />
               <Route path="/users" exact component={Users} />
               <Route path="/users/:id" component={Profile} />
               <Route path="/profile" component={Profile} />
               <Route path="/tags" component={Tags} />
-              <Route path="/questions/:id" component={Question} />
             </Switch>
           </div>
         <Footer />

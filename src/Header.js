@@ -18,7 +18,7 @@ function Incognito() {
   return (
     <span id='user-login' className="user-header">
       <img className="user-icon" src="/images/user-icon.svg" alt="User icon" />
-      <span className="nick-name">User</span>
+      <span className="nick-name">Login</span>
     </span>
   )
 }
@@ -38,14 +38,16 @@ function HeaderUserBlock() {
           'client_id': '18651',
           'key': 'xzf5GeIyy1QHmRTuxM3ZjA((',
           'access_token': token,
-        });
+        }
+      );
     }
   }, []);
 
   return (
     <div className="pl-3 pl-md-4">
       {
-        states?.result && states?.result.length ?
+        states?.result &&
+        states.result?.length ?
           <LoggedIn userInfo={states?.result[0]} /> :
           <Incognito />
       }
@@ -77,23 +79,45 @@ function NavigationMenu() {
   );
 }
 
+function SearchContainer() {
+  let [states, setStates] = useState({
+    value: ''
+  });
+
+  function handleInput(e) {
+    setStates({
+      value: e.target.value
+    });
+  }
+
+  return (
+    <div className="search-container">
+      <input
+        onChange={handleInput}
+        className="search-input"
+        value={states.value}
+        type="text"
+        placeholder="Search.."
+      />
+      <Link to={`/search/${states.value}`} className="search-button">
+        <img src="/images/search.png" alt="search" />
+      </Link>
+    </div>
+  )
+}
+
 function Header() {
   return (
     <header className="header">
       <div className="container py-2">
         <div className="header-menu row">
           <div className="col-12 col-md-3">
-            <a href="/" className="logo navbar-brand row justify-content-center">
+            <Link to="/" className="logo navbar-brand row justify-content-center">
               <img src="/images/logo.png" alt="Logo" />
-            </a>
+            </Link>
           </div>
           <div className="header-right col-12 col-md-8">
-            <div className="search-container">
-              <input className="search-input" type="text" placeholder="Search.." />
-                <button className="search-button" type="submit">
-                  <img src="/images/search.png" alt="search" />
-                </button>
-            </div>
+            <SearchContainer />
             <HeaderUserBlock />
           </div>
         </div>

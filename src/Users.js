@@ -40,7 +40,7 @@ function Users({ match }) {
   useEffect(() => {
     apiRequest('users', states, setStates,
       {
-        'filter': '!BTeB3PYedDSngfTAmVS.bMGP0Ro3rT',
+        'filter': '!0Z-Lvgpjwf2NaFZwwPDvRaNAq',
       }
     );
   }, [states.orderType, states.sortType, states.page]);

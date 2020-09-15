@@ -5,20 +5,38 @@ import apiRequest from "./apiRequest";
 import './css/questions.css'
 import LoadMore from "./LoadMore";
 
-function Main({ match }) {
+function Main({ match, search }) {
   const [states, setStates] = useState({
     result: [],
+    whatAsk: match?.params?.id ?? search,
     orderType: 'desc',
     sortType: 'activity',
     page: 1,
   });
 
   useEffect(() => {
-    if (match?.params?.id) {
+    if (match?.params?.id ?? search) {
+      setStates((prev) => ({
+        ...prev,
+        result: [],
+        whatAsk: match?.params?.id ?? search
+      }))
+    }
+  }, [search, match]);
+
+  useEffect(() => {
+    if (search) {
+      apiRequest('search', states, setStates,
+        {
+          'filter': '!.IzyzT1sqxXAwfdQbRAfsZkXflu7X',
+          'intitle': search,
+        }
+      );
+    } else if (match?.params?.id) {
       apiRequest('questions', states, setStates,
         {
           'filter': '!.IzyzT1sqxXAwfdQbRAfsZkXflu7X',
-          'tag': match?.params?.id,
+          'tagged': match?.params?.id,
         }
       );
     } else {
@@ -28,7 +46,7 @@ function Main({ match }) {
         }
       );
     }
-  }, [states.orderType, states.sortType, states.page]);
+  }, [states.orderType, states.sortType, states.page, states.whatAsk]);
 
   return (
     <>
@@ -38,10 +56,11 @@ function Main({ match }) {
         orderBy={["desc", "asc"]}
       />
       {
-        match?.params?.id ?
+        match?.params?.id || search ?
         (
-          <div className="tags px-4 pt-2">
-            <p key={match?.params?.id} className="tag">Tag: {match?.params?.id}</p>
+          <div className="px-4 pt-2">
+            <p key={match?.params?.id || search}>{`${match?.params?.id ? 'Tag: ' + match.params.id :
+              'Search: ' + search}`}</p>
           </div>
         ) : (<></>)
       }

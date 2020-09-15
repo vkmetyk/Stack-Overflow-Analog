@@ -55,7 +55,7 @@ function Tags({ match }) {
     <>
       <SortContainer
         setState={setStates}
-        sortBy={["popularity", "activity", "name"]}
+        sortBy={["popular", "activity", "name"]}
         orderBy={["desc", "asc"]}
       />
       <div className="tags-container px-4">

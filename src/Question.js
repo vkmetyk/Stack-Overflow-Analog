@@ -37,8 +37,8 @@ function Question({ match }) {
         sortBy={["activity", "votes", "creation"]}
         orderBy={["desc", "asc"]}
       />
-      {states?.result?.map(question => (
-        <QuestionContainer key={question.question_id} question={question} />
+      {states?.result?.map((question, index) => (
+        <QuestionContainer key={index} question={question} />
       ))}
     </div>
   )
