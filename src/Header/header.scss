@@ -1,0 +1,65 @@
+header {
+    background: #fafafb;
+    padding-top: 20px;
+
+    * {
+        text-decoration: none;
+    }
+
+    .header-menu {
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .logo img {
+        max-height: 50px;
+        width: auto;
+    }
+
+    .user-header {
+        cursor: pointer;
+        display: block;
+        text-align: center;
+        min-height: 40px;
+        margin: 0;
+
+        img {
+            border-radius: 1px;
+            height: 40px;
+            width: 40px;
+            margin-right: 5px;
+        }
+    }
+
+    .navbar {
+        align-items: baseline;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .nav-link {
+        padding: 0 5px;
+        font-size: 20px;
+        margin: 0 15px;
+    }
+}
+
+@media (min-width: 1400px) {
+    header .container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-menu > div {
+        display: flex;
+        justify-content: center;
+    }
+}
