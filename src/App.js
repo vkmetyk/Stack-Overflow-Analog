@@ -14,6 +14,7 @@ function App() {
           <div className="App">
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/questions/tagged/:tag" component={Questions} />
               <Route path="/questions" component={Questions} />
               {/*<Route path="/questions/" exact component={Main} />*/}
               {/*<Route path="/questions/tag/:id" component={Main} />*/}
