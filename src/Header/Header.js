@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import './header.scss';
 import NavigationMenu from "./NavigationMenu";
-import UserContainer from "./UserContainer";
+import UserContainer from "./UserContainer/UserContainer";
 
 function Header() {
   return (

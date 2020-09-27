@@ -7,15 +7,34 @@ import Search from "../Shared/Search";
 import QuestionsContainer from "./QuestionsContainer";
 import apiGetRequest from "../addition-functions/apiGetRequest";
 import saveApiResult from "../addition-functions/saveApiResult";
+import Axios from "axios";
+import info from "../constants";
+import changeSelectedData from "../addition-functions/changeSelectedData";
+
+function createQuestionsRequest(request, states) {
+  let whatAsk = states?.intitle?.length > 0 ? 'search' : request;
+  let params = {};
+
+  for (let [key, value] of Object.entries(states)) {
+    if (value)
+      params[key] = value;
+  }
+  return [whatAsk, params];
+}
 
 function Questions({ match }) {
   const [states, setStates] = useState({
-    result: [],
-    orderType: 'desc',
-    sortType: 'activity',
+    intitle: '',
     page: 1,
-    pageSize: 12,
-    search: '',
+    pagesize: info.pageSize,
+    order: 'desc',
+    sort: 'activity',
+    tagged: match?.params?.tag ? decodeURIComponent(match?.params?.tag) : null,
+    filter: '!.IzyzT1sqxXAwfdQazjwQpaNc)Wo1'
+  });
+
+  const [result, setResult] = useState({
+    data: [],
     hasMore: false,
   });
 
@@ -25,69 +44,41 @@ function Questions({ match }) {
     'creation': 'creation',
   }
 
-  const orderParameters = {
-    'ascending': 'asc',
-    'descending': 'desc',
-  }
-
-  const pageSizeParameters = {
-    '12': '12',
-    '18': '18',
-    '24': '24',
-    '30': '30',
-  }
-
-  function changeFieldAfterSort (fieldName, value, setState) {
-    setState(states => ({
-      ...states,
-      page: 1,
-      result: [],
-      [fieldName]: value
-    }));
-  }
-
   function changeSortType(value) {
-    changeFieldAfterSort("sortType", value, setStates);
+    changeSelectedData("sort", value, setStates, setResult);
   }
 
   function changeOrderType(value) {
-    changeFieldAfterSort("orderType", value, setStates);
+    changeSelectedData("order", value, setStates, setResult);
   }
 
   function changePageSize(value) {
-    changeFieldAfterSort("pageSize", value, setStates);
+    changeSelectedData("pagesize", value, setStates, setResult);
   }
 
   function search(value) {
-    setStates(() => ({
-      search: value,
-      result: [],
-      page: 1
-    }));
+    changeSelectedData("intitle", value, setStates, setResult);
   }
 
   useEffect(() => {
-    apiGetRequest('questions', {
-      'page': states.page,
-      'pagesize': states.pageSize,
-      'order': states.orderType,
-      'sort': states.sortType,
-      'filter': '!.IzyzT1sqxXAwfdQazjwQpaNc)Wo1',
-      ...(states?.search?.length > 0 ? {'intitle': states.search} : null),
-      ...(match?.params?.tag ? {'tagged': match.params.tag} : null),
-    }).then(data => data && saveApiResult(data, setStates))
-  }, [states.page, states.sortType, states.orderType, states.pageSize, states.search, match]);
+    let source = Axios.CancelToken.source();
+
+    apiGetRequest(...createQuestionsRequest('questions', states), source)
+      .then(data => data && saveApiResult(data, setResult));
+
+    return source.cancel;
+  }, [states]);
 
   return (
     <>
       <Search searchFunction={search} />
       <SelectButtonsList>
         <SelectButton options={sortParameters} changeFunction={changeSortType} />
-        <SelectButton options={pageSizeParameters} changeFunction={changePageSize} />
-        <SelectButton options={orderParameters} changeFunction={changeOrderType} />
+        <SelectButton options={info.pageSizeParams} changeFunction={changePageSize} />
+        <SelectButton options={info.orderParameters} changeFunction={changeOrderType} />
       </SelectButtonsList>
-      <QuestionsContainer questions={states.result} />
-      <LoadMore propName='page' setStates={setStates} show={states.hasMore} />
+      <QuestionsContainer questions={result.data} />
+      <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
     </>
   )
 }

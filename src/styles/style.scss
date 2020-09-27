@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul, li {
+  text-decoration: none;
+  list-style: none;
+}
+
+* {
+  font-family: 'Gotham Pro Light', Arial, Helvetica, sans-serif;
+  outline: none !important;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.nav-link, a {
+  color: #3E4751;
+}
+
+.nav-link:hover, a:hover {
+  color: orange !important;
+  text-decoration: underline rgba(46, 49, 46, 0.8);
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+#root {
+  background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.App {
+  width: 100%;
+}
+
+.App, .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#root, .App {
+  background: #f3f3f3;
+}
+
+.hyperlink, .hyperlink:visited {
+  color: #07c;
+  text-decoration: none !important;
+}
+
+.hyperlink {
+  line-height: 1.3;
+  margin-bottom: 1.2em;
+  font-size: 16px;
+
+  &:hover {
+    color: orange;
+  }
+}
+
+.select-buttons-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.select-button {
+  background: #fff;
+  border: 0;
+  padding: 5px 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-width: 150px;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.load-more-button {
+  background: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  line-height: 40px;
+  font-size: 18px;
+  height: 40px;
+  text-align: center;
+  user-select: none;
+  width: 150px;
+}
+
+.navbar-toggler {
+  border-radius: 0;
+}
+
+.avatar-wrapper-32 {
+  width: 32px;
+  height: 32px;
+}
+
+.loading-text {
+  font-size: 3vw;
+  text-align: center;
+}
+
+.error-text {
+  color: #ED8C3F;
+  font-size: 3vw;
+  text-align: center;
+}
+
+.reload-button {
+  border: 2px solid #ED8C3F;
+  color: #ED8C3F;
+  cursor: pointer;
+  font-size: 30px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+/* Media */
+@media (max-width: 576px) {
+  .App,
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

@@ -1,8 +1,8 @@
-function saveApiResult(result, setStates) {
+function saveApiResult(result, setResult) {
+  console.log("RESULT", result)
   if (result.items) {
-    setStates(prev => ({
-      ...prev,
-      'result': prev.result.concat(result.items),
+    setResult(prev => ({
+      'data': prev.data.concat(result.items),
       'hasMore': result?.has_more || false,
     }))
   }

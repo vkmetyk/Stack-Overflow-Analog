@@ -1,10 +1,15 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import './css/style.scss';
+import './styles/style.scss';
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./Home";
+import PageNotFound from "./PageNotFound";
 import Questions from "./Questions";
+import Users from "./Users/Users";
+import Tags from "./Tags";
+import User from "./User";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -21,11 +26,11 @@ function App() {
               {/*<Route path="/questions/favorite" component={FavoriteQuestions} />*/}
               {/*<Route path="/questions/:id" component={Question} />*/}
               {/*<Route path="/search/:id" component={Search} />*/}
-              {/*<Route path="/users" component={Users} />*/}
-              {/*<Route path="/user/:id" component={Profile} />*/}
-              {/*<Route path="/profile" component={Profile} />*/}
-              {/*<Route path="/tags" component={Tags} />*/}
-              {/*<Route path="/" component={Main} />*/}
+              <Route path="/users" component={Users} />
+              <Route path="/user/:id" component={User} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/tags" component={Tags} />
+              <Route component={PageNotFound} />
             </Switch>
           </div>
         <Footer />

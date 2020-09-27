@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import QuestionElement from "./QuestionElement";
+import Loading from "../../Shared/Loading";
 
 function QuestionsContainer({ questions }) {
   if (!questions || !Array.isArray(questions) || questions.length < 1)
-    return null;
+    return <Loading />;
 
   return (
     <div className="questions-container">

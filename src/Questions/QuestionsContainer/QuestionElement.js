@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from 'prop-types'
 import StatsContainer from "./StatsContainer";
 import SummaryContainer from "./SummaryContainer";
 
 function QuestionElement({ question }) {
-  if (!question)
+  if (!question || typeof question !== 'object')
     return null;
 
   return (
@@ -13,10 +12,6 @@ function QuestionElement({ question }) {
       <SummaryContainer question={question} />
     </div>
   )
-}
-
-QuestionElement.propTypes = {
-  question: PropTypes.object
 }
 
 export default QuestionElement;

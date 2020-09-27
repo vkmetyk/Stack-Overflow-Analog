@@ -8,7 +8,7 @@ function StatsContainer({ question }) {
           <div className="votes">
             <span className="vote-count-post ">
               <strong>
-                {question?.score || ''}
+                {question?.score || '0'}
               </strong>
             </span>
             <div className="view-count">votes</div>
@@ -16,13 +16,13 @@ function StatsContainer({ question }) {
         </div>
         <div className={`status ${question?.is_answered ? 'answered' : ''}`}>
           <strong>
-            {question?.answer_count || ''}
+            {question?.answer_count || '0'}
           </strong>
           answers
         </div>
       </div>
       <div className="views">
-        {question?.view_count || ''} views
+        {question?.view_count || '0'} views
       </div>
     </div>
   )
