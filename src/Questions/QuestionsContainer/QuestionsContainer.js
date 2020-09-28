@@ -5,7 +5,7 @@ import Loading from "../../Shared/Loading";
 
 function QuestionsContainer({ questions }) {
   if (!questions || !Array.isArray(questions) || questions.length < 1)
-    return <Loading />;
+    return <Loading showButton={true} />;
 
   return (
     <div className="questions-container">

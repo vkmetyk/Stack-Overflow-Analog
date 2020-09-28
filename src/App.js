@@ -10,6 +10,7 @@ import Users from "./Users/Users";
 import Tags from "./Tags";
 import User from "./User";
 import Profile from "./Profile";
+import Question from "./Question";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
               {/*<Route path="/questions/" exact component={Main} />*/}
               {/*<Route path="/questions/tag/:id" component={Main} />*/}
               {/*<Route path="/questions/favorite" component={FavoriteQuestions} />*/}
-              {/*<Route path="/questions/:id" component={Question} />*/}
+              <Route path="/question/:id" component={Question} />
               {/*<Route path="/search/:id" component={Search} />*/}
               <Route path="/users" component={Users} />
               <Route path="/user/:id" component={User} />

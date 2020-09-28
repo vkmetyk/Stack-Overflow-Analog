@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 
-function Loading() {
+function Loading({ showButton }) {
   let [loading, setState] = useState(true);
 
-  const reload = () => window.location.reload();
+  const reloadAction = () => window.location.reload();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,14 +14,17 @@ function Loading() {
 
   if (loading)
     return <p className='loading-text'>Loading...</p>
-
-  return (
-    <p className='error-text'>
-      Loading failed
-      <br />
-      <span className='reload-button' onClick={reload}>Reload</span>
-    </p>
-  )
+  else if (!showButton)
+    return <p className='error-text'>Loading failed</p>;
+  else {
+    return (
+      <p className='error-text'>
+        Loading failed
+        <br/>
+        <span className='reload-button' onClick={reloadAction}>Reload</span>
+      </p>
+    )
+  }
 }
 
 export default Loading;

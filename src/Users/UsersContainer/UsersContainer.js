@@ -5,7 +5,7 @@ import Loading from "../../Shared/Loading";
 
 function UsersContainer({ users }) {
   if (!users || !Array.isArray(users) || users.length < 1)
-    return <Loading />;
+    return <Loading showButton={true} />;
 
   return (
     <div className="users-container">

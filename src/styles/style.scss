@@ -135,20 +135,26 @@ img {
 .avatar-wrapper-32 {
   width: 32px;
   height: 32px;
+  img {
+    width: 32px;
+    height: 32px;
+  }
 }
 
-.loading-text {
-  font-size: 3vw;
+.loading-text,
+.error-text {
+  font-size: 3.5vw;
   text-align: center;
+  margin-top: 30px;
+  line-height: 6vw;
 }
 
 .error-text {
   color: #ED8C3F;
-  font-size: 3vw;
-  text-align: center;
 }
 
 .reload-button {
+  background: transparent;
   border: 2px solid #ED8C3F;
   color: #ED8C3F;
   cursor: pointer;
@@ -157,6 +163,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
+  user-select: none;
 }
 
 /* Media */

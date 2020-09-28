@@ -40,8 +40,8 @@ function Questions({ match }) {
 
   const sortParameters = {
     'activity': 'activity',
-    'votes': 'votes',
     'creation': 'creation',
+    'votes': 'votes',
   }
 
   function changeSortType(value) {

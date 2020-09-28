@@ -6,7 +6,7 @@ import Loading from "../../Shared/Loading";
 
 function UserContainer({ userInfo }) {
   if (!userInfo || !userInfo?.user_id)
-    return <Loading />;
+    return <Loading showButton={true} />;
 
   return (
     <>

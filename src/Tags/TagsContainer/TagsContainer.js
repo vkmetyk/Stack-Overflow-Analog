@@ -5,7 +5,7 @@ import Loading from "../../Shared/Loading";
 
 function TagsContainer({ tags }) {
   if (!tags || !Array.isArray(tags) || tags.length < 1)
-    return <Loading />;
+    return <Loading showButton={true} />;
 
   return (
     <div className="tags-container">
