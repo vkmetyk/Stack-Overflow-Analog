@@ -5,6 +5,7 @@ import apiGetRequest from "../addition-functions/apiGetRequest";
 import saveApiResult from "../addition-functions/saveApiResult";
 import QuestionElement from "./QuestionElement";
 import Loading from "../Shared/Loading";
+import Answers from "./Answers";
 
 function Question({ match }) {
   const [result, setResult] = useState({
@@ -31,6 +32,7 @@ function Question({ match }) {
       <div className='question-container'>
         <QuestionElement question={result.data[0]} />
       </div>
+      <Answers questionId={result.data[0].question_id} />
     </div>
   )
 }

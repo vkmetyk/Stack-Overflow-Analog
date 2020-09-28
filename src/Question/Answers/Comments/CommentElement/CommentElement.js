@@ -4,16 +4,16 @@ import dateGoodView from "../../../../addition-functions/dateGoodView";
 
 function CommentElement({ comment }) {
   return (
-    <div className='comment-container'>
-      <CommentRate comment={comment} />
-      <div className='comment-summary'>
-        <div className='comment-text'>
+    <div className='comment-element element'>
+      {/*<CommentRate comment={comment} />*/}
+      <div className='summary'>
+        <div className='text'>
           <p
-            className='comment-body'
+            className='comment-body body'
             dangerouslySetInnerHTML={{__html: comment?.body}}
           />
         </div>
-        <div className='addition-comment-info'>
+        <div className='addition-container-info'>
           <div>
             <p>commented: {dateGoodView(comment?.creation_date)}</p>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import TopTagsElement from "./TopTagsElement";
 
-function TogTagsContainer({ topTags, children }) {
+function TopTagsContainer({ topTags, children }) {
   if (!topTags || !Array.isArray(topTags) || topTags.length < 1)
     return <div id="user-tags" className="info-block collapse" />;
 
@@ -17,4 +17,4 @@ function TogTagsContainer({ topTags, children }) {
   )
 }
 
-export default TogTagsContainer;
+export default TopTagsContainer;

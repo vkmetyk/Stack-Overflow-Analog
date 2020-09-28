@@ -5,6 +5,7 @@ import apiGetRequest from "../addition-functions/apiGetRequest";
 import saveApiResult from "../addition-functions/saveApiResult";
 import UserContainer from "../User/UserContainer";
 import ProfileHeader from "./ProfileHeader";
+import Loading from "../Shared/Loading";
 
 function Profile() {
   const [result, setResult] = useState({
@@ -37,7 +38,7 @@ function Profile() {
   }, []);
 
   if (!result.data || result.data.length < 1)
-    return null;
+    return <Loading showButton={true} />
 
   return (
     <>

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-function SelectButton({ options, changeFunction }) {
+function SelectButton({ options, action }) {
   function createOptions(options) {
     let optionsHtml = [];
 
@@ -14,7 +14,7 @@ function SelectButton({ options, changeFunction }) {
   }
 
   function onChangeFunction(event) {
-    changeFunction(event.target.value);
+    action(event.target.value);
   }
 
   return (

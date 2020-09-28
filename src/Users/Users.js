@@ -54,9 +54,9 @@ function Users() {
   return (
     <>
       <SelectButtonsList>
-        <SelectButton options={sortParameters} changeFunction={changeSortType} />
-        <SelectButton options={info.pageSizeParams} changeFunction={changePageSize} />
-        <SelectButton options={info.orderParameters} changeFunction={changeOrderType} />
+        <SelectButton options={sortParameters} action={changeSortType} />
+        <SelectButton options={info.pageSizeParams} action={changePageSize} />
+        <SelectButton options={info.orderParameters} action={changeOrderType} />
       </SelectButtonsList>
       <UsersContainer users={result.data} />
       <LoadMore propName='page' setStates={setStates} show={result.hasMore} />

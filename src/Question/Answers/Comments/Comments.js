@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
-import './question-page.scss'
 import apiGetRequest from "../../../addition-functions/apiGetRequest";
 import saveApiResult from "../../../addition-functions/saveApiResult";
 import changeSelectedData from "../../../addition-functions/changeSelectedData";
 import LoadMore from "../../../Shared/LoadMore";
 import ToggleButton from "./ToggleButton";
 import CommentElement from "./CommentElement/CommentElement";
-import AnswerElement from "../AnswerElement";
 import SelectButton from "../../../Shared/SelectButton";
 import info from "../../../constants";
 import SelectButtonsList from "../../../Shared/SelectButtonsList";
 
-function Comments({ questionId }) {
+function Comments({ answerId }) {
   const [toggleShow, settoggleShow] = useState(false);
 
   const [states, setStates] = useState({
@@ -47,13 +45,13 @@ function Comments({ questionId }) {
     let source = Axios.CancelToken.source();
 
     if (toggleShow) {
-      apiGetRequest(`questions/${questionId}/answers`, states, source)
+      apiGetRequest(`answers/${answerId}/comments`, states, source)
         .then(data => data && saveApiResult(data, setResult));
     }
 
     return source.cancel;
-  }, [states, toggleShow, questionId]);
-
+  }, [states, toggleShow, answerId]);
+console.log(toggleShow, result.data)
   if (toggleShow && result.data.length < 1)
     return null;
   else if (!toggleShow) {
@@ -69,18 +67,17 @@ function Comments({ questionId }) {
   return (
     <div className='comments'>
       <ToggleButton toggleFunction={showComments}>
-        Show Comments
+        <span className='active'>Hide Comments</span>
       </ToggleButton>
       <SelectButtonsList>
-        <SelectButton options={sortParameters} changeFunction={changeSortType} />
-        <SelectButton options={info.orderParameters} changeFunction={changeOrderType} />
+        <SelectButton options={sortParameters} action={changeSortType} />
+        <SelectButton options={info.orderParameters} action={changeOrderType} />
       </SelectButtonsList>
       <div className='comments-container container'>
         {result.data.map(comment =>
           <CommentElement key={comment?.comment_id} comment={comment} />
         )}
       </div>
-      <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
     </div>
   )
 }

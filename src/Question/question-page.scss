@@ -1,6 +1,10 @@
 .question-page {
     // Shared styles
     .container {
+        margin: 0;
+        padding: 0;
+    }
+    .element {
         background: #fff;
         display: flex;
         flex-direction: row;
@@ -13,7 +17,7 @@
             padding-left: 5px;
             padding-right: 5px;
         }
-        .test,
+        .text,
         .summary {
             display: grid;
             grid-template-columns: 1fr;
@@ -42,12 +46,16 @@
             padding-right: 5px;
             position: relative;
         }
-        .tags-and-user-info,
         .addition-container-info {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             flex-wrap: wrap;
+            .tags {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
         }
         .user-info {
             align-items: center;
@@ -77,12 +85,6 @@
         }
     }
 
-    .tags-and-user-info .tags {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
     .rated {
         background: orange;
     }
@@ -97,7 +99,7 @@
         margin: 0 auto 5px auto;
     }
     // Questions
-    .question-container {
+    .question-element {
         .question-title {
             color: #3c4146;
             font-size: 27px;
@@ -151,7 +153,6 @@
     }
     // Comments
     .comments {
-        margin: 10px;
         background: #fff;
         width: 100%;
         .toggle-container {
@@ -164,7 +165,7 @@
                 text-align: center;
             }
         }
-        .comment-container {
+        .comment-element {
             border-left: 1px solid #eee;
             border-bottom: 1px solid #eee;
             margin-left: auto;
@@ -190,17 +191,23 @@
                 color: #6a737c;
             }
         }
+        .select-buttons-container {
+            justify-content: space-around !important;
+        }
+        .select-button {
+            background: #f6f6f6 !important;
+        }
     }
 }
 
 @media (max-width: 768px) {
     .question-page {
-        .container .rate {
+        .element .rate {
             font-size: 15px;
             padding: 2px;
         }
 
-        .container .action-button {
+        .element .action-button {
             width: 45px;
             height: 20px;
             margin-left: auto;

@@ -3,6 +3,7 @@ import Axios from "axios";
 import apiGetRequest from "../addition-functions/apiGetRequest";
 import saveApiResult from "../addition-functions/saveApiResult";
 import UserContainer from "./UserContainer";
+import Loading from "../Shared/Loading";
 
 function User({ match }) {
   const [result, setResult] = useState({
@@ -22,7 +23,7 @@ function User({ match }) {
   }, [match]);
 
   if (!result.data || result.data.length < 1)
-    return null;
+    return <Loading showButton={true} />
 
   return (
     <UserContainer userInfo={result.data[0]} />

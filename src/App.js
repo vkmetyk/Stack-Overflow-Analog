@@ -22,11 +22,8 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/questions/tagged/:tag" component={Questions} />
               <Route path="/questions" component={Questions} />
-              {/*<Route path="/questions/" exact component={Main} />*/}
-              {/*<Route path="/questions/tag/:id" component={Main} />*/}
               {/*<Route path="/questions/favorite" component={FavoriteQuestions} />*/}
               <Route path="/question/:id" component={Question} />
-              {/*<Route path="/search/:id" component={Search} />*/}
               <Route path="/users" component={Users} />
               <Route path="/user/:id" component={User} />
               <Route path="/profile" component={Profile} />

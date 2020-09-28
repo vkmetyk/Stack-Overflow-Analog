@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
-import './question-page.scss'
 import info from "../../constants";
 import apiGetRequest from "../../addition-functions/apiGetRequest";
 import saveApiResult from "../../addition-functions/saveApiResult";
@@ -14,7 +13,7 @@ function Answers({ questionId }) {
   const [states, setStates] = useState({
     order: 'desc',
     sort: 'activity',
-    filter: '!2.jDQvoPjNGlykDlONa4S'
+    filter: '!7gohU5MDQSy_p7T.kce93ah4aR5SpR5ACT'
   });
 
   const [result, setResult] = useState({
@@ -51,15 +50,14 @@ function Answers({ questionId }) {
     <div className='answers'>
       <h2>Answers</h2>
       <SelectButtonsList>
-        <SelectButton options={sortParameters} changeFunction={changeSortType} />
-        <SelectButton options={info.orderParameters} changeFunction={changeOrderType} />
+        <SelectButton options={sortParameters} action={changeSortType} />
+        <SelectButton options={info.orderParameters} action={changeOrderType} />
       </SelectButtonsList>
       <div className='answers-container container'>
         {result.data.map((answer, index) =>
           <AnswerElement key={index} answer={answer} />
         )}
       </div>
-      <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
     </div>
   )
 }

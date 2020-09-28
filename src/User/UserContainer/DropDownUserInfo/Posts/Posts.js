@@ -102,10 +102,10 @@ function Posts({ userId }) {
       </button>
       <div id="user-posts" className="info-block collapse">
         <SelectButtonsList>
-          <SelectButton options={sortParameters} changeFunction={changeSortType} />
-          <SelectButton options={info.pageSizeParams} changeFunction={changePageSize} />
-          <SelectButton options={requestTypes} changeFunction={changeRequestType} />
-          <SelectButton options={info.orderParameters} changeFunction={changeOrderType} />
+          <SelectButton options={sortParameters} action={changeSortType} />
+          <SelectButton options={info.pageSizeParams} action={changePageSize} />
+          <SelectButton options={requestTypes} action={changeRequestType} />
+          <SelectButton options={info.orderParameters} action={changeOrderType} />
         </SelectButtonsList>
         <PostsContainer posts={result.data} postsType={requestType}>
           <LoadMore propName='page' setStates={setStates} show={result.hasMore} />

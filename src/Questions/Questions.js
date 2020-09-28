@@ -73,10 +73,14 @@ function Questions({ match }) {
     <>
       <Search searchFunction={search} />
       <SelectButtonsList>
-        <SelectButton options={sortParameters} changeFunction={changeSortType} />
-        <SelectButton options={info.pageSizeParams} changeFunction={changePageSize} />
-        <SelectButton options={info.orderParameters} changeFunction={changeOrderType} />
+        <SelectButton options={sortParameters} action={changeSortType} />
+        <SelectButton options={info.pageSizeParams} action={changePageSize} />
+        <SelectButton options={info.orderParameters} action={changeOrderType} />
       </SelectButtonsList>
+      <div className="pt-2">
+        {states.intitle.length > 0 && <p className='m-0'>Search: {states.intitle}</p>}
+        {states.tagged && <p className='m-0'>Tagged: {states.tagged}</p>}
+      </div>
       <QuestionsContainer questions={result.data} />
       <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
     </>

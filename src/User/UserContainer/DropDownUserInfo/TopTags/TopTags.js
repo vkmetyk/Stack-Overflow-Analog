@@ -3,7 +3,7 @@ import info from "../../../../constants";
 import Axios from "axios";
 import apiGetRequest from "../../../../addition-functions/apiGetRequest";
 import saveApiResult from "../../../../addition-functions/saveApiResult";
-import TogTagsContainer from "./TogTagsContainer";
+import TopTagsContainer from "./TopTagsContainer";
 import LoadMore from "../../../../Shared/LoadMore";
 
 function TopTags({ userId }) {
@@ -50,9 +50,9 @@ function TopTags({ userId }) {
       >
         Top Tags
       </button>
-      <TogTagsContainer topTags={result.data}>
+      <TopTagsContainer topTags={result.data}>
         <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
-      </TogTagsContainer>
+      </TopTagsContainer>
     </div>
   )
 
