@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './styles/style.scss';
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Home from "./Home";
+import Home from "./Home/Home";
 import PageNotFound from "./PageNotFound";
 import Questions from "./Questions";
 import Users from "./Users/Users";

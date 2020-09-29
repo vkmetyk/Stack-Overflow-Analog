@@ -70,7 +70,7 @@ function Questions({ match }) {
   }, [states]);
 
   return (
-    <>
+    <div className='questions-page'>
       <Search searchFunction={search} />
       <SelectButtonsList>
         <SelectButton options={sortParameters} action={changeSortType} />
@@ -83,7 +83,7 @@ function Questions({ match }) {
       </div>
       <QuestionsContainer questions={result.data} />
       <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
-    </>
+    </div>
   )
 }
 

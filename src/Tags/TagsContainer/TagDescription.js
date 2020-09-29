@@ -11,7 +11,7 @@ function TagDescription({ tagName }) {
   useEffect(() => {
     let source = Axios.CancelToken.source();
 
-    apiGetRequest(`tags/${tagName}/wikis`, {
+    apiGetRequest(`tags/${encodeURIComponent(tagName)}/wikis`, {
       filter: '!20T5zgXrEUDPGjAmJQ)n5'
     }, source)
       .then(data => data && saveApiResult(data, setResult));

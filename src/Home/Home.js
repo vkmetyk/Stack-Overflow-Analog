@@ -1,11 +1,10 @@
 import React from "react";
-import Search from "./Shared/Search";
+import { Redirect } from 'react-router-dom'
 
 function Home() {
-
   return (
     <div>
-      <Search />
+      <Redirect to='/questions' />
     </div>
   )
 }

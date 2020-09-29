@@ -6,7 +6,13 @@ function QuestionAdditionInfo({ question }) {
     <div className='addition-container-info'>
       <div className="tags">
         {question.tags.map((tag, index) => (
-          <span key={index} className="tag">{tag}</span>
+          <Link
+            key={index}
+            className="tag"
+            to={`/questions/tagged/${encodeURIComponent(tag)}`}
+          >
+            {tag}
+          </Link>
         ))}
       </div>
       <div className='user-info'>

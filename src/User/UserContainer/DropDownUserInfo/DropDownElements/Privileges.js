@@ -1,6 +1,6 @@
 import React from "react";
 
-function PrivilegesElement({ info }) {
+function Privileges({ info }) {
   return (
     <div className='list-item'>
       <div className='privilege'>
@@ -15,4 +15,4 @@ function PrivilegesElement({ info }) {
   )
 }
 
-export default PrivilegesElement;
+export default Privileges;

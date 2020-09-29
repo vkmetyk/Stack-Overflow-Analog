@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
-import info from "../../../../constants";
+import info from "../../../../../constants";
 import Axios from "axios";
-import apiGetRequest from "../../../../addition-functions/apiGetRequest";
-import saveApiResult from "../../../../addition-functions/saveApiResult";
+import apiGetRequest from "../../../../../addition-functions/apiGetRequest";
+import saveApiResult from "../../../../../addition-functions/saveApiResult";
 import PostsContainer from "./PostsContainer";
-import LoadMore from "../../../../Shared/LoadMore";
-import SelectButtonsList from "../../../../Shared/SelectButtonsList";
-import SelectButton from "../../../../Shared/SelectButton";
-import changeSelectedData from "../../../../addition-functions/changeSelectedData";
+import LoadMore from "../../../../../Shared/LoadMore";
+import SelectButtonsList from "../../../../../Shared/SelectButtonsList";
+import SelectButton from "../../../../../Shared/SelectButton";
+import changeSelectedData from "../../../../../addition-functions/changeSelectedData";
 
 function getParamsForPosts(requestType, states) {
   let filter;

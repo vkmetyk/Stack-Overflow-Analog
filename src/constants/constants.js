@@ -1,4 +1,6 @@
 const info = {
+  baseUrl: `https://api.stackexchange.com/2.2/`,
+  baseParams: {site: `stackoverflow`},
   clientId: '18651',
   key: 'xzf5GeIyy1QHmRTuxM3ZjA((',
   access_token: localStorage.getItem('userToken'),

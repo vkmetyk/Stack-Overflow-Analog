@@ -1,6 +1,5 @@
 function saveUserInfo(token) {
   if (token && token.accessToken) {
-    console.log(token);
     localStorage.setItem("userToken", token.accessToken);
     window.location.reload();
   } else
@@ -10,17 +9,17 @@ function saveUserInfo(token) {
 function auth() {
   SE.authenticate({
     scope: ['write_access', 'private_info'],
-    success: function(data) { saveUserInfo(data) }, // Приложение авторизовало пользователя
-    error: function(data) { alert("User authorization: Access denied") } // Приложение не авторизовало пользователя
+    success: function(data) { saveUserInfo(data) },
+    error: function(data) { alert("User authorization: Access denied") }
   });
 }
 
 function initAPI() {
   SE.init({
-    clientId: 18651, // Здесь мы ставим выданный нам clientId
-    key: 'xzf5GeIyy1QHmRTuxM3ZjA((', // А здесь соответственно key
-    channelUrl: `https://${window.location.hostname}/`, // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-    complete: auth // Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
+    clientId: 18651,
+    key: 'xzf5GeIyy1QHmRTuxM3ZjA((',
+    channelUrl: `https://${window.location.hostname}/`,
+    complete: auth
   });
 }
 
@@ -29,7 +28,6 @@ window.onload = function () {
 
   if (checker) {
     checker.onclick = function (e) {
-      console.log(window.location.hostname);
       initAPI();
     };
   }

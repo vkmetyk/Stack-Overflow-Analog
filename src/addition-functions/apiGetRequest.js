@@ -1,18 +1,14 @@
 import axios from 'axios'
-
-const baseUrl = `https://api.stackexchange.com/2.2/`;
-const baseParams = {site: `stackoverflow`};
+import info from "../constants";
 
 async function apiGetRequest(whatAsk, parameters, source) {
-  const result = await axios.get(baseUrl + whatAsk,
+  const result = await axios.get(info.baseUrl + whatAsk,
     {
-      params: {...baseParams, ...parameters},
+      params: {...info.baseParams, ...parameters},
       cancelToken: source.token,
     })
     .then(({ data }) => data)
-    .catch(error => null)
-  console.log("REQUEST SHOW", {...baseParams, ...parameters});
-console.log("REQUEST: ", result)
+    .catch(() => null)
   return result;
 }
 

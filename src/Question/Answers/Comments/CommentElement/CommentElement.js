@@ -1,11 +1,16 @@
 import {Link} from "react-router-dom";
 import React from "react";
 import dateGoodView from "../../../../addition-functions/dateGoodView";
+import RateUpDown from "../../../RateUpDown";
 
 function CommentElement({ comment }) {
   return (
     <div className='comment-element element'>
-      {/*<CommentRate comment={comment} />*/}
+      <RateUpDown
+        up={true}
+        target={`comments/${comment.comment_id}`}
+        score={comment.score}
+      />
       <div className='summary'>
         <div className='text'>
           <p

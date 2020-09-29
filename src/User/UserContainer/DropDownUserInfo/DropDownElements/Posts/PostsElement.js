@@ -1,5 +1,5 @@
 import React from "react";
-import dateGoodView from "../../../../addition-functions/dateGoodView";
+import dateGoodView from "../../../../../addition-functions/dateGoodView";
 
 function PostsElement({ info, type }) {
   return (

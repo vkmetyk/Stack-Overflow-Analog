@@ -1,9 +1,8 @@
 /* Header */
-
 .profile-header-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 10px 0;
 
     .button {
@@ -120,9 +119,10 @@
     border: 2px solid #eee;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: auto;
     padding: 10px;
     overflow-y: auto;
+    max-height: 350px;
 
     &::-webkit-scrollbar {
         width: 0;
@@ -199,21 +199,27 @@
 /* Body */
 
 .user-drop-info-sector {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .info-block {
     background: #eee;
     border-radius: 0 0 2px 2px;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     padding-top: 5px;
     justify-content: center;
     width: 100%;
+
+    .select-buttons-container {
+        padding: 5px;
+        justify-content: space-around;
+    }
 }
 
 .drop-down-button {
@@ -335,7 +341,13 @@
 
         .tag-name {
             background: rgba(255, 165, 0, 0.5);
-            font-size: 20px;
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            height: 100%;
+            div {
+                align-self: center;
+            }
         }
     }
 
@@ -354,11 +366,5 @@
             background: rgba(255, 165, 0, 0.5);
             font-size: 20px;
         }
-    }
-}
-
-@media (min-width: 768px) {
-    .user-drop-info-sector {
-        grid-template-columns: 1fr 1fr;
     }
 }

@@ -11,6 +11,8 @@ import LoadMore from "../../Shared/LoadMore";
 
 function Answers({ questionId }) {
   const [states, setStates] = useState({
+    page: 1,
+    pagesize: 12,
     order: 'desc',
     sort: 'activity',
     filter: '!7gohU5MDQSy_p7T.kce93ah4aR5SpR5ACT'
@@ -18,6 +20,7 @@ function Answers({ questionId }) {
 
   const [result, setResult] = useState({
     data: [],
+    hasMore: false
   });
 
   const sortParameters = {
@@ -58,6 +61,7 @@ function Answers({ questionId }) {
           <AnswerElement key={index} answer={answer} />
         )}
       </div>
+      <LoadMore propName='page' setStates={setStates} show={result.hasMore} />
     </div>
   )
 }

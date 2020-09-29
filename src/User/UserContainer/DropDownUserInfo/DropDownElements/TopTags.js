@@ -1,6 +1,6 @@
 import React from "react";
 
-function TopTagsElement({ info }) {
+function TopTags({ info }) {
   const score = info.answer_score >= info.question_score ? info.answer_score : info.question_score;
   const count = info.answer_score >= info.question_score ? info.answer_count : info.question_count;
 
@@ -8,7 +8,7 @@ function TopTagsElement({ info }) {
     <div className='list-item'>
       <div className='tag'>
         <div className='tag-name'>
-          {info?.tag_name || ''}
+          <div>{info?.tag_name || ''}</div>
         </div>
         <div className='tag-score'>
           <span>count </span>
@@ -23,4 +23,4 @@ function TopTagsElement({ info }) {
   )
 }
 
-export default TopTagsElement;
+export default TopTags;

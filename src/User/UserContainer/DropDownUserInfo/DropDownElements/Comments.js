@@ -1,7 +1,7 @@
 import React from "react";
 import dateGoodView from "../../../../addition-functions/dateGoodView";
 
-function CommentsElement({ info }) {
+function Comments({ info }) {
   return (
     <div className='list-item'>
       <div className='comment'>
@@ -20,4 +20,4 @@ function CommentsElement({ info }) {
   )
 }
 
-export default CommentsElement;
+export default Comments;

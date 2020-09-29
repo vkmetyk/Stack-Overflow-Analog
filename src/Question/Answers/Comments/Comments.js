@@ -3,7 +3,6 @@ import Axios from "axios";
 import apiGetRequest from "../../../addition-functions/apiGetRequest";
 import saveApiResult from "../../../addition-functions/saveApiResult";
 import changeSelectedData from "../../../addition-functions/changeSelectedData";
-import LoadMore from "../../../Shared/LoadMore";
 import ToggleButton from "./ToggleButton";
 import CommentElement from "./CommentElement/CommentElement";
 import SelectButton from "../../../Shared/SelectButton";
@@ -51,7 +50,7 @@ function Comments({ answerId }) {
 
     return source.cancel;
   }, [states, toggleShow, answerId]);
-console.log(toggleShow, result.data)
+
   if (toggleShow && result.data.length < 1)
     return null;
   else if (!toggleShow) {

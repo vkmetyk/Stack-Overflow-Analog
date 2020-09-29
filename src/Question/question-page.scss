@@ -32,13 +32,13 @@
             padding: 10px;
             height: auto;
             width: 100%;
-            max-height: 400px;
+            max-height: 500px;
         }
-        .rate {
+        .rate-container {
             color: #6a737c;
             display: flex;
             text-align: center;
-            font-size: 21px;
+            font-size: 18px;
             flex-direction: column;
             flex-wrap: wrap;
             justify-content: center;
@@ -74,18 +74,19 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        width: 70px;
-        height: 30px;
+        width: 60px;
+        height: 25px;
         &:hover {
             background: rgba(255, 165, 0, 0.8);
         }
         img {
+            background: transparent;
             width: auto;
             height: 100%;
         }
     }
 
-    .rated {
+    .rate-containerd {
         background: orange;
     }
 
@@ -113,6 +114,7 @@
             margin-right: 5px;
             line-height: 1;
             height: max-content;
+            text-decoration: none;
         }
         .question-numbers {
             color: #6a737c;
@@ -120,7 +122,7 @@
                 margin-right: 15px;
             }
         }
-        .rate p {
+        .rate-container p {
             margin: 5px;
         }
         .sort-by-container {
@@ -137,6 +139,7 @@
         }
         .answer {
             background: #fff;
+            border-bottom: 1px solid orange;
             margin: 15px 0;
         }
         .answer-container {
@@ -146,9 +149,9 @@
                     margin: 0;
                 }
             }
-            .rate p {
-                margin: 5px;
-            }
+        }
+        .rate-container p {
+            margin: 5px;
         }
     }
     // Comments
@@ -170,7 +173,7 @@
             border-bottom: 1px solid #eee;
             margin-left: auto;
             width: 95%;
-            .rate {
+            .rate-container {
                 font-size: 18px;
                 p {
                     margin: 0;
@@ -202,7 +205,7 @@
 
 @media (max-width: 768px) {
     .question-page {
-        .element .rate {
+        .element .rate-container {
             font-size: 15px;
             padding: 2px;
         }

@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 function ProfileHeader() {
   function LogoutAction(e) {
@@ -9,7 +8,6 @@ function ProfileHeader() {
 
   return (
     <div className='profile-header-container'>
-      <Link to="/questions/favorite" className='button'>Favorite tags questions</Link>
       <button onClick={LogoutAction} className='button'>Logout</button>
     </div>
   )

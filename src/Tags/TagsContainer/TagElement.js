@@ -10,7 +10,10 @@ function TagElement({ tag }) {
     <div className='tag-element'>
       <div className='tag-header'>
         <h3>
-          <Link className="hyperlink" to={`/questions/tagged/${tag.name}`}>
+          <Link
+            className="hyperlink"
+            to={`/questions/tagged/${encodeURIComponent(tag.name)}`}
+          >
             {tag.name}
           </Link>
         </h3>

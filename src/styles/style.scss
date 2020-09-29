@@ -170,6 +170,33 @@ img {
   user-select: none;
 }
 
+.alert-container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  margin: 0 auto 10px auto;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.alert-message {
+  animation-duration: 0.5s;
+  animation-name: show;
+  background: rgba(255, 197, 89, 0.9);
+  color: #2c3136;
+  font-size: 18px;
+  padding: 15px;
+  text-align: center;
+  opacity: 100%;
+  width: 100%;
+}
+
+@keyframes show {
+  from {opacity: 0;}
+  to {opacity: 100%;}
+}
+
 /* Media */
 @media (max-width: 576px) {
   .App,

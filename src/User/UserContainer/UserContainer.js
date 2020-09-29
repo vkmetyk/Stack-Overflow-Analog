@@ -1,5 +1,5 @@
 import React from "react";
-import './user-page.scss'
+import './user-page.scss';
 import GeneralUserInfo from "./GeneralUserInfo";
 import DropDownUserInfo from "./DropDownUserInfo";
 import Loading from "../../Shared/Loading";
